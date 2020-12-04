@@ -1,0 +1,5 @@
+﻿@model Models.EF.Footer
+
+
+@*Triển khai footer kiểu này có thể tuỳ biến footer  mà không ảnh hưởng tới toàn bộ trang web*@
+@Html.Raw(Model.Content) @*Phương thức Html.Raw để hiển thị các văn bản mà không cần mã hóa Html cho nó.*@
