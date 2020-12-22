@@ -83,7 +83,6 @@ C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Microsoft.Owin.Secu
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.csprojResolveAssemblyReference.cache
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.dll
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.pdb
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Models.dll
@@ -92,3 +91,18 @@ C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\PagedList.dll
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\PagedList.Mvc.dll
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\PagedList.xml
 C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\PagedList.Mvc.xml
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Models.dll.config
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.csprojAssemblyReference.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.csproj.CoreCompileInputs.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\obj\Debug\Web_ASPMVC.csproj.CopyComplete
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Common.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Common.pdb
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\BotDetect.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\BotDetect.Web.Mvc.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\System.Data.SQLite.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\System.Data.SQLite.xml
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Facebook.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\Facebook.xml
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\StaticResource.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\StaticResource.pdb
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Web_ASPMVC\bin\en\StaticResource.resources.dll

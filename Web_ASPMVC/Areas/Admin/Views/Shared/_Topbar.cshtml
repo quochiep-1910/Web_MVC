@@ -45,6 +45,18 @@
             </div>
         </li>
 
+        <li style="margin:20px">
+            @using (Html.BeginForm("ChangeCulture", "Base"))
+            {
+                @Html.Hidden("returnUrl", Request.RawUrl)
+                @Html.DropDownList("ddlCulture", new SelectList(new[] {
+                    new {value="vi",text=StaticResource.Resource.Vietnamese},     @*truyền vào StaticResource *@
+                    new {value="en",text=StaticResource.Resource.English},
+
+                    }, "value", "text", Session[Web_ASPMVC.Common.CommonConstants.CurrentCulture]),new { onchange="this.form.submit();"})
+            }
+        </li>
+
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -202,7 +214,5 @@
                 </a>
             </div>
         </li>
-
     </ul>
-
 </nav>

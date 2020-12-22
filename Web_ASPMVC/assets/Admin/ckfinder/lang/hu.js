@@ -43,7 +43,6 @@ CKFinder.lang['hu'] =
 		rememberDecision: 'Jegyezze meg a választásomat'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

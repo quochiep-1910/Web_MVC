@@ -10,8 +10,6 @@
 
 ; (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { var a = typeof require == "function" && require; if (!u && a) return a(o, !0); if (i) return i(o, !0); throw new Error("Cannot find module '" + o + "'") } var f = n[o] = { exports: {} }; t[o][0].call(f.exports, function (e) { var n = t[o][1][e]; return s(n ? n : e) }, f, f.exports, e, t, n, r) } return n[o].exports } var i = typeof require == "function" && require; for (var o = 0; o < r.length; o++) s(r[o]); return s })({
     1: [function (require, module, exports) {
-
-
         //
         // The shims in this file are not fully implemented shims for the ES5
         // features, but do work for the particular usecases there is in
@@ -226,13 +224,10 @@
         } else {
             exports.getOwnPropertyDescriptor = valueObject;
         }
-
     }, {}], 2: [function (require, module, exports) {
-
         // not implemented
         // The reason for having an empty file and not throwing is to allow
         // untraditional implementation of this module.
-
     }, {}], 3: [function (require, module, exports) {
         var process = require("__browserify_process");// Copyright Joyent, Inc. and other Node contributors.
         //
@@ -364,7 +359,6 @@
             }).join('/'));
         };
 
-
         // path.relative(from, to)
         // posix version
         exports.relative = function (from, to) {
@@ -429,7 +423,6 @@
             return root + dir;
         };
 
-
         exports.basename = function (path, ext) {
             var f = splitPath(path)[2];
             // TODO: make this comparison case-insensitive on windows?
@@ -439,11 +432,9 @@
             return f;
         };
 
-
         exports.extname = function (path) {
             return splitPath(path)[3];
         };
-
     }, { "__browserify_process": 5, "_shims": 1, "util": 4 }], 4: [function (require, module, exports) {
         // Copyright Joyent, Inc. and other Node contributors.
         //
@@ -541,7 +532,6 @@
         }
         exports.inspect = inspect;
 
-
         // http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
         inspect.colors = {
             'bold': [1, 22],
@@ -572,7 +562,6 @@
             'regexp': 'red'
         };
 
-
         function stylizeWithColor(str, styleType) {
             var style = inspect.styles[styleType];
 
@@ -584,11 +573,9 @@
             }
         }
 
-
         function stylizeNoColor(str, styleType) {
             return str;
         }
-
 
         function arrayToHash(array) {
             var hash = {};
@@ -599,7 +586,6 @@
 
             return hash;
         }
-
 
         function formatValue(ctx, value, recurseTimes) {
             // Provide a hook for user-specified inspect functions.
@@ -706,7 +692,6 @@
             return reduceToSingleString(output, base, braces);
         }
 
-
         function formatPrimitive(ctx, value) {
             if (isUndefined(value))
                 return ctx.stylize('undefined', 'undefined');
@@ -725,11 +710,9 @@
                 return ctx.stylize('null', 'null');
         }
 
-
         function formatError(value) {
             return '[' + Error.prototype.toString.call(value) + ']';
         }
-
 
         function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
             var output = [];
@@ -750,7 +733,6 @@
             });
             return output;
         }
-
 
         function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
             var name, str, desc;
@@ -811,7 +793,6 @@
             return name + ': ' + str;
         }
 
-
         function reduceToSingleString(output, base, braces) {
             var numLinesEst = 0;
             var length = shims.reduce(output, function (prev, cur) {
@@ -831,7 +812,6 @@
 
             return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
         }
-
 
         // NOTE: These type checking functions intentionally don't use `instanceof`
         // because it is fragile and can be easily faked with `Object.create()`.
@@ -923,11 +903,9 @@
             return Object.prototype.toString.call(o);
         }
 
-
         function pad(n) {
             return n < 10 ? '0' + n.toString(10) : n.toString(10);
         }
-
 
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
                       'Oct', 'Nov', 'Dec'];
@@ -941,12 +919,10 @@
             return [d.getDate(), months[d.getMonth()], time].join(' ');
         }
 
-
         // log is just a thin wrapper to console.log that prepends a timestamp
         exports.log = function () {
             console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
         };
-
 
         /**
          * Inherit the prototype methods from one constructor into another.
@@ -988,7 +964,6 @@
         function hasOwnProperty(obj, prop) {
             return Object.prototype.hasOwnProperty.call(obj, prop);
         }
-
     }, { "_shims": 1 }], 5: [function (require, module, exports) {
         // shim for using process in browser
 
@@ -1043,9 +1018,7 @@
         process.chdir = function (dir) {
             throw new Error('process.chdir is not supported');
         };
-
     }, {}], 6: [function (require, module, exports) {
-
         /*!
          * EJS
          * Copyright(c) 2012 TJ Holowaychuk <tj@vision-media.ca>
@@ -1218,7 +1191,6 @@
                         buf += postfix;
                     }
                     i += end - start + close.length - 1;
-
                 } else if (stri == "\\") {
                     buf += "\\\\";
                 } else if (stri == "'") {
@@ -1402,7 +1374,6 @@
                 return compile(src, {});
             });
         }
-
     }, { "./filters": 7, "./utils": 8, "fs": 2, "path": 3 }], 7: [function (require, module, exports) {
         /*!
          * EJS - Filters
@@ -1605,9 +1576,7 @@
         exports.json = function (obj) {
             return JSON.stringify(obj);
         };
-
     }, {}], 8: [function (require, module, exports) {
-
         /*!
          * EJS
          * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
@@ -1630,11 +1599,8 @@
               .replace(/'/g, '&#39;')
               .replace(/"/g, '&quot;');
         };
-
-
     }, {}], 9: [function (require, module, exports) {
         'use strict';
-
 
         var Product = require('./product'),
             Pubsub = require('./util/pubsub'),
@@ -1642,8 +1608,6 @@
             constants = require('./constants'),
             currency = require('./util/currency'),
             mixin = require('./util/mixin');
-
-
 
         /**
          * Renders the Mini Cart to the page's DOM.
@@ -1677,10 +1641,8 @@
             }
         }
 
-
         mixin(Cart.prototype, Pubsub.prototype);
         mixin(Cart.prototype, Storage.prototype);
-
 
         /**
          * Adds an item to the cart. This fires an "add" event.
@@ -1737,7 +1699,6 @@
             return idx;
         };
 
-
         /**
          * Returns the carts current items.
          *
@@ -1748,7 +1709,6 @@
             return (typeof idx === 'number') ? this._items[idx] : this._items;
         };
 
-
         /**
          * Returns the carts current settings.
          *
@@ -1758,7 +1718,6 @@
         Cart.prototype.settings = function settings(name) {
             return (name) ? this._settings[name] : this._settings;
         };
-
 
         /**
          * Returns the cart discount.
@@ -1778,7 +1737,6 @@
 
             return currency(result, config);
         };
-
 
         /**
          * Returns the cart total without discounts.
@@ -1801,7 +1759,6 @@
             return currency(result, config);
         };
 
-
         /**
          * Returns the cart total.
          *
@@ -1819,7 +1776,6 @@
 
             return currency(result, config);
         };
-
 
         /**
          * Remove an item from the cart. This fires a "remove" event.
@@ -1842,7 +1798,6 @@
             return !!item.length;
         };
 
-
         /**
          * Saves the cart data.
          */
@@ -1862,7 +1817,6 @@
             });
         };
 
-
         /**
          * Proxies the checkout event
          * The assumption is the view triggers this and consumers subscribe to it
@@ -1872,7 +1826,6 @@
         Cart.prototype.checkout = function checkout(evt) {
             this.fire('/them-gio-hang?producId = @item.ID&quantity =1', evt);
         };
-
 
         /**
          * Destroy the cart data. This fires a "destroy" event.
@@ -1886,20 +1839,13 @@
             this.fire('destroy');
         };
 
-
-
-
         module.exports = Cart;
-
     }, { "./constants": 11, "./product": 13, "./util/currency": 15, "./util/mixin": 18, "./util/pubsub": 19, "./util/storage": 20 }], 10: [function (require, module, exports) {
         'use strict';
 
-
         var mixin = require('./util/mixin');
 
-
         var defaults = module.exports = {
-
             name: 'PPMiniCart',
 
             parent: (typeof document !== 'undefined') ? document.body : null,
@@ -1920,9 +1866,7 @@
                 discount: 'Discount:',
                 empty: 'Your shopping cart is empty'
             }
-
         };
-
 
         /**
          * Mixes in the user config with the default config.
@@ -1933,13 +1877,10 @@
         module.exports.load = function load(userConfig) {
             return mixin(defaults, userConfig);
         };
-
     }, { "./util/mixin": 18 }], 11: [function (require, module, exports) {
         'use strict';
 
-
         module.exports = {
-
             COMMANDS: { _cart: true, _xclick: true, _donations: true },
 
             SETTINGS: /^(?:business|currency_code|lc|paymentaction|no_shipping|cn|no_note|invoice|handling_cart|weight_cart|weight_unit|tax_cart|discount_amount_cart|discount_rate_cart|page_style|image_url|cpp_|cs|cbt|return|cancel_return|notify_url|rm|custom|charset)/,
@@ -1963,12 +1904,9 @@
             SUBMIT_CLASS: 'minicart-submit',
 
             DATA_IDX: 'data-minicart-idx'
-
         };
-
     }, {}], 12: [function (require, module, exports) {
         'use strict';
-
 
         var Cart = require('./cart'),
             View = require('./view'),
@@ -1977,7 +1915,6 @@
             cartModel,
             confModel,
             viewModel;
-
 
         /**
          * Renders the Mini Cart to the page's DOM.
@@ -1998,7 +1935,6 @@
             cartModel.on('destroy', viewModel.hide, viewModel);
         };
 
-
         /**
          * Resets the Mini Cart and its view model
          */
@@ -2008,9 +1944,6 @@
             viewModel.hide();
             viewModel.redraw();
         };
-
-
-
 
         // Export to either node or the brower window
         if (typeof window === 'undefined') {
@@ -2022,15 +1955,12 @@
 
             window.paypal.minicart = minicart;
         }
-
     }, { "./cart": 9, "./config": 10, "./view": 22 }], 13: [function (require, module, exports) {
         'use strict';
-
 
         var currency = require('./util/currency'),
             Pubsub = require('./util/pubsub'),
             mixin = require('./util/mixin');
-
 
         var parser = {
             quantity: function (value) {
@@ -2054,7 +1984,6 @@
             }
         };
 
-
         /**
          * Creates a new product.
          *
@@ -2075,9 +2004,7 @@
             Pubsub.call(this);
         }
 
-
         mixin(Product.prototype, Pubsub.prototype);
-
 
         /**
          * Gets the product data.
@@ -2088,7 +2015,6 @@
         Product.prototype.get = function get(key) {
             return (key) ? this._data[key] : this._data;
         };
-
 
         /**
          * Sets a value on the product. This is used rather than manually setting the
@@ -2108,7 +2034,6 @@
 
             this.fire('change', key);
         };
-
 
         /**
          * Parse and return the options for this product.
@@ -2151,7 +2076,6 @@
             return this._options;
         };
 
-
         /**
          * Parse and return the discount for this product.
          *
@@ -2184,7 +2108,6 @@
             return currency(this._discount, config);
         };
 
-
         /**
          * Parse and return the total without discounts for this product.
          *
@@ -2208,7 +2131,6 @@
             return currency(this._amount, config);
         };
 
-
         /**
          * Parse and return the total for this product.
          *
@@ -2227,7 +2149,6 @@
 
             return currency(this._total, config);
         };
-
 
         /**
          * Determine if this product has the same data as another.
@@ -2264,7 +2185,6 @@
             return match;
         };
 
-
         /**
          * Determine if this product is valid.
          *
@@ -2274,7 +2194,6 @@
             return (this.get('item_name') && this.amount() > 0);
         };
 
-
         /**
          * Destroys this product. Fires a "destroy" event.
          */
@@ -2283,18 +2202,11 @@
             this.fire('destroy', this);
         };
 
-
-
-
         module.exports = Product;
-
     }, { "./util/currency": 15, "./util/mixin": 18, "./util/pubsub": 19 }], 14: [function (require, module, exports) {
         /* jshint quotmark:double */
 
-
         "use strict";
-
-
 
         module.exports.add = function add(el, str) {
             var re;
@@ -2312,7 +2224,6 @@
             }
         };
 
-
         module.exports.remove = function remove(el, str) {
             var re;
 
@@ -2328,7 +2239,6 @@
                 }
             }
         };
-
 
         module.exports.inject = function inject(el, str) {
             var style;
@@ -2348,10 +2258,8 @@
                 el.appendChild(style);
             }
         };
-
     }, {}], 15: [function (require, module, exports) {
         'use strict';
-
 
         var currencies = {
             AED: { before: '\u062c' },
@@ -2417,7 +2325,6 @@
             ZAR: { before: 'R' }
         };
 
-
         module.exports = function currency(amount, config) {
             var code = config && config.currency || 'USD',
                 value = currencies[code],
@@ -2437,13 +2344,10 @@
 
             return result;
         };
-
     }, {}], 16: [function (require, module, exports) {
         'use strict';
 
-
         module.exports = (function (window, document) {
-
             /**
              * Events are added here for easy reference
              */
@@ -2474,7 +2378,6 @@
                         obj.addEventListener(type, wrappedFn, false);
                         cache.push([obj, type, fn, wrappedFn]);
                     },
-
 
                     /**
                      * Remove an event from an object
@@ -2531,7 +2434,6 @@
                         cache.push([obj, type, fn, wrappedFn]);
                     },
 
-
                     /**
                      * Remove an event from an object (IE)
                      *
@@ -2558,15 +2460,11 @@
                     }
                 };
             }
-
         })(typeof window === 'undefined' ? null : window, typeof document === 'undefined' ? null : document);
-
     }, {}], 17: [function (require, module, exports) {
         'use strict';
 
-
         var forms = module.exports = {
-
             parse: function parse(form) {
                 var raw = form.elements,
                     data = {},
@@ -2582,7 +2480,6 @@
 
                 return data;
             },
-
 
             getInputValue: function getInputValue(input) {
                 var tag = input.tagName.toLowerCase();
@@ -2601,11 +2498,9 @@
                     }
                 }
             }
-
         };
     }, {}], 18: [function (require, module, exports) {
         'use strict';
-
 
         var mixin = module.exports = function mixin(dest, source) {
             var value;
@@ -2626,15 +2521,12 @@
 
             return dest;
         };
-
     }, {}], 19: [function (require, module, exports) {
         'use strict';
-
 
         function Pubsub() {
             this._eventCache = {};
         }
-
 
         Pubsub.prototype.on = function on(name, fn, scope) {
             var cache = this._eventCache[name];
@@ -2645,7 +2537,6 @@
 
             cache.push([fn, scope]);
         };
-
 
         Pubsub.prototype.off = function off(name, fn) {
             var cache = this._eventCache[name],
@@ -2659,7 +2550,6 @@
                 }
             }
         };
-
 
         Pubsub.prototype.fire = function on(name) {
             var cache = this._eventCache[name], i, len, fn, scope;
@@ -2676,21 +2566,16 @@
             }
         };
 
-
         module.exports = Pubsub;
-
     }, {}], 20: [function (require, module, exports) {
         'use strict';
-
 
         var Storage = module.exports = function Storage(name, duration) {
             this._name = name;
             this._duration = duration || 30;
         };
 
-
         var proto = Storage.prototype;
-
 
         proto.load = function () {
             if (typeof window === 'object' && window.localStorage) {
@@ -2714,7 +2599,6 @@
             }
         };
 
-
         proto.save = function (data) {
             if (typeof window === 'object' && window.localStorage) {
                 var expires = new Date(), wrapped;
@@ -2730,24 +2614,19 @@
             }
         };
 
-
         proto.destroy = function () {
             if (typeof window === 'object' && window.localStorage) {
                 window.localStorage.removeItem(this._name);
             }
         };
-
     }, {}], 21: [function (require, module, exports) {
         'use strict';
 
-
         var ejs = require('ejs');
-
 
         module.exports = function template(str, data) {
             return ejs.render(str, data);
         };
-
 
         // Workaround for IE 8's lack of support
         if (!String.prototype.trim) {
@@ -2755,10 +2634,8 @@
                 return this.replace(/^\s+|\s+$/g, '');
             };
         }
-
     }, { "ejs": 6 }], 22: [function (require, module, exports) {
         'use strict';
-
 
         var config = require('./config'),
             events = require('./util/events'),
@@ -2767,8 +2644,6 @@
             css = require('./util/css'),
             viewevents = require('./viewevents'),
             constants = require('./constants');
-
-
 
         /**
          * Creates a view model.
@@ -2797,7 +2672,6 @@
             events.add(window, 'pageshow', viewevents.pageshow, this);
         }
 
-
         /**
          * Tells the view to redraw
          */
@@ -2806,7 +2680,6 @@
             this.el.innerHTML = template(config.template, this.model);
             events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
         };
-
 
         /**
          * Tells the view to show
@@ -2818,7 +2691,6 @@
             }
         };
 
-
         /**
          * Tells the view to hide
          */
@@ -2829,14 +2701,12 @@
             }
         };
 
-
         /**
          * Toggles the visibility of the view
          */
         View.prototype.toggle = function toggle() {
             this[this.isShowing ? 'hide' : 'show']();
         };
-
 
         /**
          * Binds cart submit events to a form.
@@ -2874,7 +2744,6 @@
             return true;
         };
 
-
         /**
          * Adds an item to the view.
          *
@@ -2888,7 +2757,6 @@
             var els = this.el.querySelectorAll('.' + constants.ITEM_CLASS);
             css.add(els[idx], constants.ITEM_CHANGED_CLASS);
         };
-
 
         /**
          * Changes an item in the view.
@@ -2904,7 +2772,6 @@
             css.add(els[idx], constants.ITEM_CHANGED_CLASS);
         };
 
-
         /**
          * Removes an item from the view.
          *
@@ -2914,22 +2781,15 @@
             this.redraw();
         };
 
-
-
-
         module.exports = View;
-
     }, { "./config": 10, "./constants": 11, "./util/css": 14, "./util/events": 16, "./util/forms": 17, "./util/template": 21, "./viewevents": 23 }], 23: [function (require, module, exports) {
         'use strict';
-
 
         var constants = require('./constants'),
             events = require('./util/events'),
             viewevents;
 
-
         module.exports = viewevents = {
-
             click: function (evt) {
                 var target = evt.target,
                     className = target.className;
@@ -2959,7 +2819,6 @@
                 }
             },
 
-
             keyup: function (evt) {
                 var that = this,
                     target = evt.target,
@@ -2982,7 +2841,6 @@
                     }, constants.KEYUP_TIMEOUT);
                 }
             },
-
 
             readystatechange: function () {
                 if (/interactive|complete/.test(document.readyState)) {
@@ -3007,16 +2865,13 @@
                 }
             },
 
-
             pageshow: function (evt) {
                 if (evt.persisted) {
                     this.redraw();
                     this.hide();
                 }
             }
-
         };
-
     }, { "./constants": 11, "./util/events": 16 }]
 }, {}, [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23])
 ;

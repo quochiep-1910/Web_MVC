@@ -1,9 +1,5 @@
 ﻿using Models.DAO;
 using Models.EF;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Web_ASPMVC.Common;
 
@@ -12,32 +8,38 @@ namespace Web_ASPMVC.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index()
+        public ActionResult Index(string search, int page = 1, int pageSize = 4)
         {
-            return View();
+            var dao = new ContentDAO();
+            var model = dao.ListAllPaging(search, page, pageSize); //truyền page và pageSize vàoo
+            ViewBag.search = search;
+            return View(model);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
             SetViewBag();
             return View();
         }
+
         [HttpPost]
         [ValidateInput(false)]//Thuộc tính ValidateInput (false) được sử dụng để cho phép gửi nội dung hoặc mã HTML đến máy chủ
         public ActionResult Create(Content model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                //var session = (UserLogin)Session[CommonConstants.USER_SESSION];
-                //model.CreatedBy = session.UserName;
-                //var culture = Session[CommonConstants.CurrentCulture];
-                //model.Language = culture.ToString();
-                //new ContentDAO().Create(model);
-                //return RedirectToAction("Index");
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.CreatedBy = session.UserName;
+                var culture = Session[CommonConstants.CurrentCulture];
+                model.Language = culture.ToString();
+                new ContentDAO().Create(model);
+                return RedirectToAction("Index");
             }
             SetViewBag();
             return View();
         }
+
         [HttpGet]
         public ActionResult Edit(long id)
         {
@@ -46,16 +48,29 @@ namespace Web_ASPMVC.Areas.Admin.Controllers
             SetViewBag(content.CategoryID);
             return View(content);
         }
+
         [HttpPost]
+        [ValidateInput(false)]//Thuộc tính ValidateInput (false) được sử dụng để cho phép gửi nội dung hoặc mã HTML đến máy chủ (dễ bị tấn công)
         public ActionResult Edit(Content model)
         {
             if (ModelState.IsValid)
             {
-
+                var dao = new ContentDAO();
+                var result = dao.Edit(model); //gán biến id vào DAO
+                if (result > 0) //nếu insert thành công thì id>0
+                {
+                    SetAlert("Sửa user thành công", "success");
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập Nhập thất bại");
+                }
             }
             SetViewBag(model.CategoryID);
             return View();
         }
+
         public void SetViewBag(long? selectedID = null)
         {
             var dao = new CategoryDAO();

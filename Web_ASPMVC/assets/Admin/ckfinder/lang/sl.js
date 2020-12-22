@@ -43,7 +43,6 @@ CKFinder.lang['sl'] =
 		rememberDecision: 'Zapomni si mojo izbiro'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

@@ -43,7 +43,6 @@ CKFinder.lang['fa'] =
 		rememberDecision: 'انتخاب من را بیاد داشته باش'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'rtl',
 	HelpLang : 'en',

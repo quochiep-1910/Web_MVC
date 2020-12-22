@@ -247,5 +247,4 @@
 
   CodeMirror.defineMIME("text/x-stex", "stex");
   CodeMirror.defineMIME("text/x-latex", "stex");
-
 });

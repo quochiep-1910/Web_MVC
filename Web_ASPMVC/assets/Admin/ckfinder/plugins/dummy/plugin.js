@@ -12,7 +12,6 @@
  * See http://docs.cksource.com/ckfinder_2.x_api/symbols/CKFinder.html#.addPlugin
  */
 CKFinder.addPlugin( 'dummy', {
-
 	lang : [ 'en', 'pl' ],
 
 	appReady : function( api ) {

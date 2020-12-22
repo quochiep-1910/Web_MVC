@@ -1,0 +1,190 @@
+﻿@model List<Models.EF.Product>
+
+@{
+    var category = (Models.EF.ProductCategory)ViewBag.Category;
+    ViewBag.Title = category.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Name_Container{
+    @category.Name
+}
+<div class="w3l_banner_nav_right">
+    <div class="w3l_banner_nav_right_banner3">
+        <h3>Best Deals For New Products<span class="blink_me"></span></h3>
+    </div>
+    <div class="w3l_banner_nav_right_banner3_btm">
+        <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+            <div class="view view-tenth">
+                <img src="/assets/Client/images/13.jpg" alt=" " class="img-responsive" />
+                <div class="mask">
+                    <h4>Grocery Store</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <h4>Utensils</h4>
+            <ol>
+                <li>sunt in culpa qui officia</li>
+                <li>commodo consequat</li>
+                <li>sed do eiusmod tempor incididunt</li>
+            </ol>
+        </div>
+        <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+            <div class="view view-tenth">
+                <img src="/assets/Client/images/14.jpg" alt=" " class="img-responsive" />
+                <div class="mask">
+                    <h4>Grocery Store</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <h4>Hair Care</h4>
+            <ol>
+                <li>enim ipsam voluptatem officia</li>
+                <li>tempora incidunt ut labore et</li>
+                <li>vel eum iure reprehenderit</li>
+            </ol>
+        </div>
+        <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+            <div class="view view-tenth">
+                <img src="/assets/Client/images/15.jpg" alt=" " class="img-responsive" />
+                <div class="mask">
+                    <h4>Grocery Store</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <h4>Cookies</h4>
+            <ol>
+                <li>dolorem eum fugiat voluptas</li>
+                <li>ut aliquid ex ea commodi</li>
+                <li>magnam aliquam quaerat</li>
+            </ol>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="w3ls_w3l_banner_nav_right_grid">
+        <h3>Popular Brands</h3>
+        <div class="w3ls_w3l_banner_nav_right_grid1">
+            <h6>@category.Name</h6>
+            @foreach (var item in Model)
+            {
+                var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                <div class="col-md-3 w3ls_w3l_banner_left">
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                            <div class="agile_top_brand_left_grid_pos">
+                                <img src="@item.Voucher_tag" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a href="@url"><img src="@item.Image" alt=" " class="img-responsive" /></a>
+                                            <p>@item.Name</p>
+                                            <h4>
+                                                $@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Hết hàng")
+                                                <span>
+                                                    @(item.PromotionPrice.HasValue ?
+                                                    item.PromotionPrice.Value.ToString("N0") : "")
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div class="snipcart-details">
+                                            <h4><a href="/them-gio-hang?producId=@item.ID&quantity=1">Thêm vào giỏ</a></h4>
+                                            @*<form action="/them-gio-hang?producId = @item.ID&quantity =1" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="business" value=" " />
+                                                    <input type="hidden" name="item_name" value="knorr instant soup" />
+                                                    <input type="hidden" name="amount" value="3.00" />
+                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="currency_code" value="USD" />
+                                                    <input type="hidden" name="return" value=" " />
+                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="submit" name="submit" value="Add to cart"
+                                                           class="button" />
+                                                </fieldset>
+                                            </form>*@
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- Phân trang-->
+            @if (ViewBag.TotalPage > 1)
+            {
+                var pageDisplay = (int)ViewBag.MaxPage;
+                <!-- hiện thị trang-->
+                int totalPage = (int)ViewBag.TotalPage;
+                <!-- toàn bộ trang-->
+                int currentPage = ((int)ViewBag.Page);
+                <!-- trang hiện tại-->
+
+                <!--Create numric link-->
+                var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                var link = "/san-pham/" + category.MetaTitle + "-" + category.ID;
+                <nav>
+                    <ul class="pagination">
+                        @if (currentPage > ViewBag.First)
+                        {
+                        <!--trang hiện tại lớn hơn trang đầu tiên thì ta hiện thị trang đầu trang cuối -->
+                        <!-- link hiện tại + page-->
+                            <li>
+                                <a href="@link?page=@ViewBag.First" title="Trang đầu" class="order-first">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                        }
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (currentPage == i)
+                            {
+                                <li>
+                                    <a href="@link?page=@i" class="active" title="Trang @i">@i</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a href="@link?page=@i" class="active" title="pos">@i</a></li>
+                            }
+                        }
+                        @if (currentPage < totalPage)
+                        {
+                            <li>
+                                <a href="@link?page=@ViewBag.Next" class="next"
+                                   title="Trang sau"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+            else
+            {
+                @*<span>Không có bản ghi nào</span>*@
+            }
+
+            <!-- /Phân trang-->
+            <div class="clearfix"> </div>
+
+        </div>
+
+    </div>
+</div>
+    <div class="clearfix"></div>
+    

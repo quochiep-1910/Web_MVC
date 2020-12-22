@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -87,6 +97,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -220,17 +233,25 @@
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\DistrictModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProvinceModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1305,8 +1326,16 @@
     <Content Include="assets\Admin\ckfinder\_samples\skin_v1.html" />
     <Content Include="assets\Admin\ckfinder\_samples\standalone.html" />
     <Content Include="assets\Admin\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="assets\Admin\css\401.css" />
     <Content Include="assets\Admin\css\sb-admin-2.css" />
     <Content Include="assets\Admin\css\sb-admin-2.min.css" />
+    <Content Include="assets\Admin\img\emoji.png" />
+    <Content Include="assets\Admin\img\undraw_posting_photo.svg" />
+    <Content Include="assets\Admin\img\undraw_profile.svg" />
+    <Content Include="assets\Admin\img\undraw_profile_1.svg" />
+    <Content Include="assets\Admin\img\undraw_profile_2.svg" />
+    <Content Include="assets\Admin\img\undraw_profile_3.svg" />
+    <Content Include="assets\Admin\img\undraw_rocket.svg" />
     <Content Include="assets\Admin\js\Controller\userController.js" />
     <Content Include="assets\Admin\js\sb-admin-2.js" />
     <Content Include="assets\Admin\js\sb-admin-2.min.js" />
@@ -1316,23 +1345,160 @@
     <Content Include="assets\Client\css\flexslider.css" />
     <Content Include="assets\Client\css\font-awesome.css" />
     <Content Include="assets\Client\css\style.css" />
+    <Content Include="assets\Client\Data\Provinces_Data.xml" />
     <Content Include="assets\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\Client\images\1.jpg" />
+    <Content Include="assets\Client\images\1.png" />
+    <Content Include="assets\Client\images\10.jpg" />
+    <Content Include="assets\Client\images\10.png" />
+    <Content Include="assets\Client\images\11.jpg" />
+    <Content Include="assets\Client\images\11.png" />
+    <Content Include="assets\Client\images\12.jpg" />
+    <Content Include="assets\Client\images\12.png" />
+    <Content Include="assets\Client\images\13.jpg" />
+    <Content Include="assets\Client\images\13.png" />
+    <Content Include="assets\Client\images\14.jpg" />
+    <Content Include="assets\Client\images\14.png" />
+    <Content Include="assets\Client\images\15.jpg" />
+    <Content Include="assets\Client\images\15.png" />
+    <Content Include="assets\Client\images\16.jpg" />
+    <Content Include="assets\Client\images\16.png" />
+    <Content Include="assets\Client\images\17.jpg" />
+    <Content Include="assets\Client\images\17.png" />
+    <Content Include="assets\Client\images\18.jpg" />
+    <Content Include="assets\Client\images\18.png" />
+    <Content Include="assets\Client\images\19.jpg" />
+    <Content Include="assets\Client\images\19.png" />
+    <Content Include="assets\Client\images\2.jpg" />
+    <Content Include="assets\Client\images\2.png" />
+    <Content Include="assets\Client\images\20.jpg" />
+    <Content Include="assets\Client\images\20.png" />
+    <Content Include="assets\Client\images\21.jpg" />
+    <Content Include="assets\Client\images\21.png" />
+    <Content Include="assets\Client\images\22.jpg" />
+    <Content Include="assets\Client\images\22.png" />
+    <Content Include="assets\Client\images\23.jpg" />
+    <Content Include="assets\Client\images\23.png" />
+    <Content Include="assets\Client\images\24.jpg" />
+    <Content Include="assets\Client\images\24.png" />
+    <Content Include="assets\Client\images\25.jpg" />
+    <Content Include="assets\Client\images\25.png" />
+    <Content Include="assets\Client\images\26.jpg" />
+    <Content Include="assets\Client\images\26.png" />
+    <Content Include="assets\Client\images\27.jpg" />
+    <Content Include="assets\Client\images\27.png" />
+    <Content Include="assets\Client\images\28.jpg" />
+    <Content Include="assets\Client\images\28.png" />
+    <Content Include="assets\Client\images\29.jpg" />
+    <Content Include="assets\Client\images\29.png" />
+    <Content Include="assets\Client\images\3.jpg" />
+    <Content Include="assets\Client\images\3.png" />
+    <Content Include="assets\Client\images\30.jpg" />
+    <Content Include="assets\Client\images\30.png" />
+    <Content Include="assets\Client\images\31.jpg" />
+    <Content Include="assets\Client\images\31.png" />
+    <Content Include="assets\Client\images\32.jpg" />
+    <Content Include="assets\Client\images\32.png" />
+    <Content Include="assets\Client\images\33.jpg" />
+    <Content Include="assets\Client\images\33.png" />
+    <Content Include="assets\Client\images\34.jpg" />
+    <Content Include="assets\Client\images\34.png" />
+    <Content Include="assets\Client\images\35.jpg" />
+    <Content Include="assets\Client\images\35.png" />
+    <Content Include="assets\Client\images\36.png" />
+    <Content Include="assets\Client\images\37.png" />
+    <Content Include="assets\Client\images\38.png" />
+    <Content Include="assets\Client\images\39.png" />
+    <Content Include="assets\Client\images\4.jpg" />
+    <Content Include="assets\Client\images\4.png" />
+    <Content Include="assets\Client\images\40.png" />
+    <Content Include="assets\Client\images\41.png" />
+    <Content Include="assets\Client\images\42.png" />
+    <Content Include="assets\Client\images\43.png" />
+    <Content Include="assets\Client\images\44.png" />
+    <Content Include="assets\Client\images\45.png" />
+    <Content Include="assets\Client\images\46.png" />
+    <Content Include="assets\Client\images\47.png" />
+    <Content Include="assets\Client\images\48.png" />
+    <Content Include="assets\Client\images\49.png" />
+    <Content Include="assets\Client\images\5.jpg" />
+    <Content Include="assets\Client\images\5.png" />
+    <Content Include="assets\Client\images\50.png" />
+    <Content Include="assets\Client\images\51.png" />
+    <Content Include="assets\Client\images\52.png" />
+    <Content Include="assets\Client\images\53.png" />
+    <Content Include="assets\Client\images\54.png" />
+    <Content Include="assets\Client\images\55.png" />
+    <Content Include="assets\Client\images\56.png" />
+    <Content Include="assets\Client\images\57.png" />
+    <Content Include="assets\Client\images\58.png" />
+    <Content Include="assets\Client\images\59.png" />
+    <Content Include="assets\Client\images\6.jpg" />
+    <Content Include="assets\Client\images\6.png" />
+    <Content Include="assets\Client\images\60.png" />
+    <Content Include="assets\Client\images\61.png" />
+    <Content Include="assets\Client\images\62.png" />
+    <Content Include="assets\Client\images\63.png" />
+    <Content Include="assets\Client\images\64.png" />
+    <Content Include="assets\Client\images\65.png" />
+    <Content Include="assets\Client\images\66.png" />
+    <Content Include="assets\Client\images\67.png" />
+    <Content Include="assets\Client\images\68.png" />
+    <Content Include="assets\Client\images\69.png" />
+    <Content Include="assets\Client\images\7.jpg" />
+    <Content Include="assets\Client\images\7.png" />
+    <Content Include="assets\Client\images\70.png" />
+    <Content Include="assets\Client\images\71.png" />
+    <Content Include="assets\Client\images\72.png" />
+    <Content Include="assets\Client\images\73.png" />
+    <Content Include="assets\Client\images\74.png" />
+    <Content Include="assets\Client\images\75.png" />
+    <Content Include="assets\Client\images\76.png" />
+    <Content Include="assets\Client\images\8.jpg" />
+    <Content Include="assets\Client\images\8.png" />
+    <Content Include="assets\Client\images\9.jpg" />
+    <Content Include="assets\Client\images\9.png" />
+    <Content Include="assets\Client\images\arrow.png" />
+    <Content Include="assets\Client\images\card.png" />
+    <Content Include="assets\Client\images\cart.png" />
+    <Content Include="assets\Client\images\close_1.png" />
+    <Content Include="assets\Client\images\img-sp.png" />
+    <Content Include="assets\Client\images\offer.png" />
+    <Content Include="assets\Client\images\paypal.png" />
+    <Content Include="assets\Client\images\search.png" />
+    <Content Include="assets\Client\images\star.png" />
+    <Content Include="assets\Client\images\star1.png" />
+    <Content Include="assets\Client\images\tag.png" />
     <Content Include="assets\Client\js\bootstrap.min.js" />
+    <Content Include="assets\Client\js\cartController.js" />
     <Content Include="assets\Client\js\controller\cartController.js" />
+    <Content Include="assets\Client\js\controller\contactController.js" />
+    <Content Include="assets\Client\js\controller\SearchController.js" />
+    <Content Include="assets\Client\js\controller\userController.js" />
     <Content Include="assets\Client\js\counterup.min.js" />
     <Content Include="assets\Client\js\creditly.js" />
     <Content Include="assets\Client\js\easing.js" />
     <Content Include="assets\Client\js\easyResponsiveTabs.js" />
     <Content Include="assets\Client\js\jquery-1.11.1.min.js" />
+    <Content Include="assets\Client\js\jquery-ui.js" />
     <Content Include="assets\Client\js\jquery.flexslider.js" />
     <Content Include="assets\Client\js\jquery.wmuSlider.js" />
     <Content Include="assets\Client\js\minicart.js" />
     <Content Include="assets\Client\js\move-top.js" />
     <Content Include="assets\Client\js\okzoom.js" />
     <Content Include="assets\Client\js\waypoints.min.js" />
+    <Content Include="assets\Client\template\neworder.html" />
+    <Content Include="ckfinder\userfiles\files\59777023_1080900158787047_3668802051116105728_o %282%29.jpg" />
+    <Content Include="ckfinder\userfiles\_thumbs\Files\59777023_1080900158787047_3668802051116105728_o %282%29.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Data_Img\files\80548396_1262530677290660_747052073001943040_o.jpg" />
+    <Content Include="Data_Img\files\a5dda3b9fc3605685c27 %283%29.jpg" />
+    <Content Include="Data_Img\images\a5dda3b9fc3605685c27.jpg" />
+    <Content Include="Data_Img\_thumbs\Files\80548396_1262530677290660_747052073001943040_o.jpg" />
+    <Content Include="Data_Img\_thumbs\Files\a5dda3b9fc3605685c27 %283%29.jpg" />
+    <Content Include="Data_Img\_thumbs\Images\a5dda3b9fc3605685c27.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1401,6 +1567,11 @@
     <Content Include="assets\Client\fonts\FontAwesome.otf" />
     <Content Include="assets\Client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\Client\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="assets\Client\js\CartItem.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1416,7 +1587,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1436,15 +1609,24 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\Content\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="assets\Admin\img\" />
     <Folder Include="assets\Admin\scss\" />
     <Folder Include="assets\Admin\vendor\" />
-    <Folder Include="assets\Client\images\" />
-    <Folder Include="Data_Img\" />
+    <Folder Include="ckfinder\userfiles\flash\" />
+    <Folder Include="ckfinder\userfiles\images\" />
+    <Folder Include="Data_Img\flash\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1455,9 +1637,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{eef86d77-d38b-4bf1-97ca-4e6ccfc4d633}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{a7e44703-455a-40b7-bfde-2451cfa80b9f}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{3bcef901-5cfb-4acf-aab2-a1ff5d1c1a7a}</Project>
+      <Name>StaticResource</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -1494,7 +1684,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

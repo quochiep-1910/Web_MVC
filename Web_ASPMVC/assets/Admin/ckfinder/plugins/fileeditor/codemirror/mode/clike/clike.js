@@ -771,5 +771,4 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
         closeBrackets: {triples: '"'}
     }
   });
-
 });

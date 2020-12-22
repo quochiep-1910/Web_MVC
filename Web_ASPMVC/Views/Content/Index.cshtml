@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Models.EF.Content>
+
+@{
+    ViewBag.Title = "Quản lý tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Name_Container{
+    Tin tức
+}
+<div class="w3l_banner_nav_right">
+    <!-- events -->
+    <div class="events">
+        <h3>Tin tức</h3>
+        <div class="events-bottom">
+            @foreach (var item in Model)
+            {
+                var day = item.CreatedDate.Value.ToString("dd");
+                var month = item.CreatedDate.Value.ToString("MMM");
+                var Year = item.CreatedDate.Value.ToString("yyyy");
+                var Time = item.CreatedDate.Value.ToString("hh:mm");
+
+                <div class="col-md-6 events_bottom_left">
+                    <div class="col-md-4 events_bottom_left1">
+                        <div class="events_bottom_left1_grid">
+                            <h4>@day</h4>
+                            <p>@month,@Year</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8 events_bottom_left2">
+                        <img src="@item.Image" alt=" " class="img-responsive" />
+                        <h4><a href="/tin-tuc/@item.MetaTitle-@item.ID">@item.Name </a></h4>
+                        <ul>
+                            <li><i class="fa fa-clock-o" aria-hidden="true"></i>@Time</li>
+                            <li><i class="fa fa-user" aria-hidden="true"></i><a href="#">@item.CreatedBy</a></li>
+                        </ul>
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            }
+                <div class="clearfix"> </div>
+            </div>
+    </div>
+
+    <!-- //events -->
+    @if (ViewBag.TotalPage > 1)
+    {
+        var pageDisplay = (int)ViewBag.MaxPage;
+        int totalPage = (int)ViewBag.TotalPage;
+        int currentPage = ((int)ViewBag.Page);
+
+        // Create numeric links
+        var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+        var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+        var link = "/tin-tuc";
+        <nav>
+            <ul class="pagination">
+                @if (currentPage > ViewBag.First)
+                {
+                    <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                    <li>
+                        <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                    </li>
+
+                }
+                @for (int i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    if (currentPage == i)
+                    {
+
+                        <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                    }
+                }
+                @if (currentPage < totalPage)
+                {
+                    <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                    <li> <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                }
+            </ul>
+        </nav>
+
+    }
+</div>
+<div class="clearfix"></div>

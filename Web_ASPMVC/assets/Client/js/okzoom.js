@@ -6,7 +6,6 @@
 **/
 
 $(function($){
-
   // Identify browser based on useragent string
   var browser = (function( ua ) {
     ua = ua.toLowerCase();
@@ -75,7 +74,7 @@ $(function($){
       base.$el.data("okzoom", base);
 
       base.options = options;
-      
+
       if (is_mobile) {
         base.$el.bind('touchstart', (function(b) {
           return function(e) {
@@ -265,5 +264,4 @@ $(function($){
     base.listener.style.display = "none";
     document.body.style.cursor = "auto";
   };
-
 });

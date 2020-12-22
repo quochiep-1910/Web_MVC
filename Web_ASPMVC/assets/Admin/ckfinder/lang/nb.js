@@ -43,7 +43,6 @@ CKFinder.lang['nb'] =
 		rememberDecision: 'Husk mitt valg'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

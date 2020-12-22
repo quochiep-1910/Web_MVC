@@ -1,0 +1,11 @@
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\bin\Debug\StaticResource.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\bin\Debug\StaticResource.pdb
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\bin\Debug\en\StaticResource.resources.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.csprojAssemblyReference.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.Resource.resources
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.Resource.en.resources
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.csproj.GenerateResource.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.csproj.CoreCompileInputs.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\en\StaticResource.resources.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\StaticResource\obj\Debug\StaticResource.pdb

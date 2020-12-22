@@ -833,5 +833,4 @@ function eatSuffix(stream, c){
   else
     stream.pos=x;
 }
-
 });

@@ -216,7 +216,6 @@ CodeMirror.defineMode("sass", function(config) {
         }
       }
 
-
       // Indent Directives
       if (stream.match(/^@(else if|if|media|else|for|each|while|mixin|function)/)) {
         indent(state);
@@ -256,10 +255,8 @@ CodeMirror.defineMode("sass", function(config) {
         state.cursorHalf=1;
         return "operator";
       }
-
     } // cursorHalf===0 ends here
     else{
-
       if (ch === "#") {
         stream.next();
         // Hex numbers
@@ -341,7 +338,6 @@ CodeMirror.defineMode("sass", function(config) {
         state.cursorHalf = 0;
         return null;
       }
-
     } // else ends here
 
     if (stream.match(opRegexp))
@@ -379,7 +375,6 @@ CodeMirror.defineMode("sass", function(config) {
       state.scopes = newScopes;
     }
 
-
     return style;
   }
 
@@ -410,5 +405,4 @@ CodeMirror.defineMode("sass", function(config) {
 });
 
 CodeMirror.defineMIME("text/x-sass", "sass");
-
 });

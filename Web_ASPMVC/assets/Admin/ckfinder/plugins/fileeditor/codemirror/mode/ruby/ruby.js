@@ -281,5 +281,4 @@ CodeMirror.defineMode("ruby", function(config) {
 });
 
 CodeMirror.defineMIME("text/x-ruby", "ruby");
-
 });

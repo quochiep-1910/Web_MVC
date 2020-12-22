@@ -43,7 +43,6 @@ CKFinder.lang['ru'] =
 		rememberDecision: 'Запомнить мой выбор'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

@@ -12,7 +12,6 @@
 "use strict";
 
 CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
-
   var htmlFound = CodeMirror.modes.hasOwnProperty("xml");
   var htmlMode = CodeMirror.getMode(cmCfg, htmlFound ? {name: "xml", htmlMode: true} : "text/plain");
 
@@ -135,7 +134,6 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   }
 
   function blockNormal(stream, state) {
-
     var sol = stream.sol();
 
     var prevLineIsList = state.list !== false,
@@ -744,7 +742,6 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     },
 
     token: function(stream, state) {
-
       // Reset state.formatting
       state.formatting = false;
 
@@ -799,5 +796,4 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
 }, "xml");
 
 CodeMirror.defineMIME("text/x-markdown", "markdown");
-
 });

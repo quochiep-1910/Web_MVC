@@ -1,0 +1,6 @@
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\bin\Debug\Common.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\bin\Debug\Common.pdb
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\obj\Debug\Common.dll
+C:\Users\hiepg\OneDrive\Máy tính\Web_ASPMVC\Common\obj\Debug\Common.pdb

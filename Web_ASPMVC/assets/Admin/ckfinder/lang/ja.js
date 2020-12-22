@@ -43,7 +43,6 @@ CKFinder.lang['ja'] =
 		rememberDecision: '全てに適用する'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

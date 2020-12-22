@@ -5,7 +5,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-
 @section header{
     Danh sách người dùng
 }
@@ -23,7 +22,6 @@
             <div class="row col-lg-12">
                 <div class="col-md-4">
                     <input type="text" value="@ViewBag.search" class="form-control" name="search" />
-
                 </div>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-success">Tìm Kiếm</button>
@@ -36,7 +34,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                           
+
                             <th>Tên Tài Khoản</th>
                             <th>Tên</th>
                             <th>Nhóm</th>
@@ -63,14 +61,14 @@
                         @foreach (var item in Model)
                         {
                             <tr id="row_@item.ID">
-                               
+
                                 <td>@item.UserName</td>
                                 <td>@item.Name</td>
                                 <td>@item.GroupID</td>
                                 <td>@item.Address</td>
                                 <td>@item.Email</td>
                                 <td>@item.CreatedDate</td>
-                               <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích Hoạt":"Khoá")</a></td> 
+                               <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích Hoạt":"Khoá")</a></td>
                                 <td>
                                     <a href="/Admin/User/Edit/@item.ID">Sửa |</a> @*muốn nỗi chuỗi thì thêm @ vào*@
 
@@ -83,13 +81,10 @@
                                 </td>
                             </tr>
                         }
-
                     </tbody>
                 </table>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = @ViewBag.search }))
             </div>
-
         </div>
     </div>
-
 </div>

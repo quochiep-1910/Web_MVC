@@ -1,4 +1,4 @@
-﻿//slow remove item 
+﻿//slow remove item
 
     $('.value-plus').on('click', function () {
         var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
@@ -9,7 +9,6 @@ $('.value-minus').on('click', function () {
     var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
     if (newVal >= 1) divUpd.text(newVal);
 });
-
 
     $(document).ready(function (c) {
         $('.close1').on('click', function (c) {
@@ -26,7 +25,6 @@ $('.value-minus').on('click', function () {
             });
         });
     });
-
 
     $(document).ready(function (c) {
         $('.close3').on('click', function (c) {

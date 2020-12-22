@@ -43,7 +43,6 @@ CKFinder.lang['eo'] =
 		rememberDecision: 'Memori la decidon'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

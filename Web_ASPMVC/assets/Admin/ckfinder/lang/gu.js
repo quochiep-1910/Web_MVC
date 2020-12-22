@@ -43,7 +43,6 @@ CKFinder.lang['gu'] =
 		rememberDecision: 'મારો વિકલ્પ યાદ રાખો'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

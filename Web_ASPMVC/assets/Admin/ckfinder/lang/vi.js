@@ -43,7 +43,6 @@ CKFinder.lang['vi'] =
 		rememberDecision: 'Ghi nhớ quyết định này'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

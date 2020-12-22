@@ -1,0 +1,31 @@
+﻿@model List<Models.EF.Menu>
+
+<div class="w3l_header_right">
+    <ul>
+        <li class="dropdown profile_details_drop">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+            <div class="mega-dropdown-menu">
+                <div class="w3ls_vegetables">
+                    <ul class="dropdown-menu drp-mnu">
+                        @{ 
+                            var session = (Web_ASPMVC.Common.UserLogin) Session[Web_ASPMVC.Common.CommonConstants.USER_SESSION];
+                        }
+                        @if (session == null)
+                        {
+                            <!--kiểm tra xem có session hay chưa, nếu chưa trả về trang login, rồi thì hiện thị người login-->
+                            foreach (var item in Model)
+                            {
+                                <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+                            }
+                        }
+                        else
+                        {
+                            <li><a>Xin Chào: @session.UserName</a></li> <!--Hiện thị tên khi đăng nhập thành công-->
+                            <li><a>@Html.ActionLink("Thoát","Logout","User")</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

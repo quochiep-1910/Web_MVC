@@ -358,7 +358,6 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     support: set("ODBCdotTable doubleQuote binaryNumber hexNumber")
   });
 }());
-
 });
 
 /*

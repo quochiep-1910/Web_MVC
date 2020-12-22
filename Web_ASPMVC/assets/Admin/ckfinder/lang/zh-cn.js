@@ -43,7 +43,6 @@ CKFinder.lang['zh-cn'] =
 		rememberDecision: '下次不再询问'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

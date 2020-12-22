@@ -5746,7 +5746,6 @@
     toggleOverwrite: function(cm) {cm.toggleOverwrite();}
   };
 
-
   // STANDARD KEYMAPS
 
   var keyMap = CodeMirror.keyMap = {};
@@ -7814,7 +7813,6 @@
     }
     return n + i;
   }
-
 
   // Find the height above the given line.
   function heightAtLine(lineObj) {

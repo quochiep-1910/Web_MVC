@@ -81,5 +81,4 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     }
   };
 };
-
 });

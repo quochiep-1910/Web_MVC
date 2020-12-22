@@ -1,0 +1,47 @@
+﻿@model Models.EF.Contact
+@{
+    ViewBag.Title = "Liên Hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--đây giống như js-footer-->
+@section Js_Footer
+    {
+    <script src="/assets/Client/js/controller/contactController.js"></script>
+}
+<div class="w3l_banner_nav_right">
+    <!-- mail -->
+    <div class="mail">
+        <h3>Mail Us</h3>
+        <div class="agileinfo_mail_grids">
+
+            @Html.Raw(Model.Content) <!--gúa trị từ database ra-->
+            <div class="col-md-8 agileinfo_mail_grid_right">
+                <form>
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input id="txtName" type="text" name="Name" placeholder="Name*" required>
+                        <input id="txtEmail" type="email" name="Email" placeholder="Email*" required>
+                    </div>
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input id="txtPhone" type="text" name="Telephone" placeholder="Telephone*" required>
+                        <input id="txtAddress" type="text" name="Address" placeholder="Address*" required>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <textarea id="txtMessage" name="Message" placeholder="Message*" required></textarea>
+                    <button id="btnSend" type="button" value="Submit">Submit </button>
+                    <input type="reset" value="Clear">
+
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //mail -->
+</div>
+<div class="clearfix"></div>
+   
+<!-- //banner -->
+<!-- map -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d96748.15352429623!2d-74.25419879353115!3d40.731667701988506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sshopping+mall+in+New+York%2C+NY%2C+United+States!5e0!3m2!1sen!2sin!4v1467205237951" style="border:0"></iframe>
+</div>
+<!-- //map -->

@@ -43,7 +43,6 @@ CKFinder.lang['ro'] =
 		rememberDecision: 'Reține acțiunea pe viitor'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

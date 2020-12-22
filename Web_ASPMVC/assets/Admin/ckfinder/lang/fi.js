@@ -44,7 +44,6 @@ CKFinder.lang['fi'] =
 		rememberDecision: 'Muista valintani'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'fi',

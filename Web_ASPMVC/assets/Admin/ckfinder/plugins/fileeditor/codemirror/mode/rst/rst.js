@@ -12,7 +12,6 @@
 "use strict";
 
 CodeMirror.defineMode('rst', function (config, options) {
-
   var rx_strong = /^\*\*[^\*\s](?:[^\*]*[^\*\s])?\*\*/;
   var rx_emphasis = /^\*[^\*\s](?:[^\*]*[^\*\s])?\*/;
   var rx_literal = /^``[^`\s](?:[^`]*[^`\s])``/;
@@ -28,7 +27,6 @@ CodeMirror.defineMode('rst', function (config, options) {
 
   var overlay = {
     token: function (stream) {
-
       if (stream.match(rx_strong) && stream.match (/\W+|$/, false))
         return 'strong';
       if (stream.match(rx_emphasis) && stream.match (/\W+|$/, false))
@@ -69,7 +67,6 @@ CodeMirror.defineMode('rst', function (config, options) {
 ///////////////////////////////////////////////////////////////////////////////
 
 CodeMirror.defineMode('rst-base', function (config) {
-
   ///////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////
 
@@ -168,7 +165,6 @@ CodeMirror.defineMode('rst-base', function (config) {
       token = 'header';
     } else if (phase(state) == rx_role_pre ||
                stream.match(rx_role_pre, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_normal, context(rx_role_pre, 1));
@@ -225,7 +221,6 @@ CodeMirror.defineMode('rst-base', function (config) {
       }
     } else if (phase(state) == rx_role_suf ||
                stream.match(rx_role_suf, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_normal, context(rx_role_suf, 1));
@@ -260,7 +255,6 @@ CodeMirror.defineMode('rst-base', function (config) {
         change(state, to_normal);
       }
     } else if (phase(state) == rx_role || stream.match(rx_role, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_normal, context(rx_role, 1));
@@ -286,7 +280,6 @@ CodeMirror.defineMode('rst-base', function (config) {
       }
     } else if (phase(state) == rx_substitution_ref ||
                stream.match(rx_substitution_ref, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_normal, context(rx_substitution_ref, 1));
@@ -313,7 +306,6 @@ CodeMirror.defineMode('rst-base', function (config) {
       }
     } else if (phase(state) == rx_link_ref2 ||
                stream.match(rx_link_ref2, false)) {
-
       switch (stage(state)) {
       case 0:
         if (!stream.peek() || stream.peek().match(/^\W$/)) {
@@ -358,7 +350,6 @@ CodeMirror.defineMode('rst-base', function (config) {
 
     if (phase(state) == rx_substitution ||
         stream.match(rx_substitution, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_explicit, context(rx_substitution, 1));
@@ -384,7 +375,6 @@ CodeMirror.defineMode('rst-base', function (config) {
       }
     } else if (phase(state) == rx_directive ||
                stream.match(rx_directive, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_explicit, context(rx_directive, 1));
@@ -419,7 +409,6 @@ CodeMirror.defineMode('rst-base', function (config) {
         change(state, to_normal);
       }
     } else if (phase(state) == rx_link || stream.match(rx_link, false)) {
-
       switch (stage(state)) {
       case 0:
         change(state, to_explicit, context(rx_link, 1));
@@ -482,9 +471,7 @@ CodeMirror.defineMode('rst-base', function (config) {
   ///////////////////////////////////////////////////////////////////////////
 
   function to_mode(stream, state) {
-
     if (state.ctx.mode && state.ctx.local) {
-
       if (stream.sol()) {
         if (!stream.eatSpace()) change(state, to_normal);
         return null;
@@ -553,5 +540,4 @@ CodeMirror.defineMIME('text/x-rst', 'rst');
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-
 });

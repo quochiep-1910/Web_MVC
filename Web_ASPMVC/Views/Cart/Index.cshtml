@@ -8,7 +8,8 @@
 @*@section Name_Container{
         @Model.Name
     }*@
-@section Js_cartItem{
+@section Js_cartItem
+    {
     <script src="/assets/Client/js/controller/cartController.js"></script>
 }
 
@@ -49,8 +50,8 @@
                                         <div class="entry value-minus">&nbsp;</div>
                                         @*<div class="entry value" ><span >1</span></div>*@
                                         <input id="txtquantity" class="entry value" data-id="@item.Product.ID" value="@item.Quantity" />
-                                      
-                                         <div class="entry value-plus active">&nbsp;</div>
+
+                                        <div class="entry value-plus active">&nbsp;</div>
                                     </div>
                                 </div>
                             </td>
@@ -59,87 +60,35 @@
                             <td class="invert">$@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
                             <td class="invert">
                                 <div class="rem">
-                                    <div id="btnDeleteItem" class="close1"> </div>
+                                    <a href="#"><div id="btnDeleteItem" data-id="@item.Product.ID" class="close1"> </div></a>
                                 </div>
-
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
         </div>
         <!-- end checkout-->
-
 
         <div class="checkout-left">
             <div class="col-md-4 checkout-left-basket">
                 <h4>Continue to basket</h4>
 
                 <ul>
+                    @{decimal total = 0;}
                     @foreach (var item in Model)
                     {
                         <li>@item.Product.Name <i>-</i> <span>$@(item.Product.Price.GetValueOrDefault(0).ToString("N0")) </span></li>
                         <li>
                             Total <i>-</i>
-                            <span>$@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0")) </span>
+                            @*<span>$@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0")) </span>*@
+                            <span>$@(total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity)) </span>
                         </li>
                     }
-
                 </ul>
             </div>
-            <div class="col-md-8 address_form_agile">
-                <h4>Add a new Details</h4>
-                <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
-                    <section class="creditly-wrapper wthree, w3_agileits_wrapper">
-                        <div class="information-wrapper">
-                            <div class="first-row form-group">
-                                <div class="controls">
-                                    <label class="control-label">Full name: </label>
-                                    <input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
-                                </div>
-                                <div class="w3_agileits_card_number_grids">
-                                    <div class="w3_agileits_card_number_grid_left">
-                                        <div class="controls">
-                                            <label class="control-label">Mobile number:</label>
-                                            <input class="form-control" type="text" placeholder="Mobile number">
-                                        </div>
-                                    </div>
-                                    <div class="w3_agileits_card_number_grid_right">
-                                        <div class="controls">
-                                            <label class="control-label">Landmark: </label>
-                                            <input class="form-control" type="text" placeholder="Landmark">
-                                        </div>
-                                    </div>
-                                    <div class="clear"> </div>
-                                </div>
-                                <div class="controls">
-                                    <label class="control-label">Town/City: </label>
-                                    <input class="form-control" type="text" placeholder="Town/City">
-                                </div>
-                                <div class="controls">
-                                    <label class="control-label">Address type: </label>
-                                    <select class="form-control option-w3ls">
-                                        <option>Office</option>
-                                        <option>Home</option>
-                                        <option>Commercial</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="submit check_out">Delivery to this Address</button>
-                        </div>
-                    </section>
-                </form>
-                <div class="checkout-right-basket">
-                    <a id="btnPayment" href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
-                </div>
-            </div>
-
-            <div class="clearfix"> </div>
-
+            <button id="btnPayment" class="submit check_out">Thanh toán</button>
         </div>
-
     </div>
     <!-- //about -->
 </div>
@@ -148,5 +97,3 @@
 @*@section Js_cartItem{
       <script src="/assets/Client/js/CartItem.js"></script>
     }*@
-
-

@@ -43,7 +43,6 @@ CKFinder.lang['zh-tw'] =
 		rememberDecision: 'Remember my decision' // MISSING
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'zh-tw',

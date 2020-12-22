@@ -343,5 +343,4 @@
                           "extern gil include nogil property public"+
                           "readonly struct union DEF IF ELIF ELSE")
   });
-
 });

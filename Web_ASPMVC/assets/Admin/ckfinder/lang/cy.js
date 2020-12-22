@@ -43,7 +43,6 @@ CKFinder.lang['cy'] =
 		rememberDecision: 'Cofio fy mhenderfyniad'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',

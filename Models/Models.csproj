@@ -61,9 +61,12 @@
   <ItemGroup>
     <Compile Include="AccountModels.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\ContactDAO.cs" />
     <Compile Include="DAO\ContentDAO.cs" />
     <Compile Include="DAO\FooterDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
+    <Compile Include="DAO\OrderDetailsDAO.cs" />
     <Compile Include="DAO\ProductCategoryDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\SildeDAO.cs" />
@@ -100,7 +103,16 @@
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{eef86d77-d38b-4bf1-97ca-4e6ccfc4d633}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{3bcef901-5cfb-4acf-aab2-a1ff5d1c1a7a}</Project>
+      <Name>StaticResource</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

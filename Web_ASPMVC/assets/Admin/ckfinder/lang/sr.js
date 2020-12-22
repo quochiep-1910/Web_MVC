@@ -44,7 +44,6 @@ CKFinder.lang['sr'] =
 		rememberDecision: 'Запамти мој избор'
 	},
 
-
 	// Language direction, 'ltr' or 'rtl'.
 	dir : 'ltr',
 	HelpLang : 'en',
