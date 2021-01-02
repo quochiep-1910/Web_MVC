@@ -1,13 +1,11 @@
-﻿@model List<Models.EF.ProductCategory>
+﻿@model PagedList.IPagedList<Models.EF.ProductCategory>
+@using PagedList.Mvc;
 @{
-    /**/
-
-    /**/
-
-    /**/
-
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý danh mục sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="/assets/Admin/js/Controller/ProductCategoryController.js"></script> <!--ajax nút status-->
 }
 
 @section header{
@@ -17,13 +15,13 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables User</h6>
+            <h6 class="m-0 font-weight-bold text-primary">DataTables ProductCategory</h6>
         </div>
         @using (Html.BeginForm("Index", "ProductCategory", FormMethod.Get))
         {
             <div class="row col-lg-12">
                 <div class="col-md-4">
-                    @*<input type="text" value="@ViewBag.search" class="form-control" name="search" />*@
+                    <input type="text" value="@ViewBag.search" class="form-control" name="search" />
                 </div>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-success">Tìm Kiếm</button>
@@ -80,7 +78,7 @@
                         }
                     </tbody>
                 </table>
-                @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = @ViewBag.search }))*@
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = @ViewBag.search }))
             </div>
         </div>
     </div>

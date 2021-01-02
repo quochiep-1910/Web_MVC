@@ -231,6 +231,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -1337,6 +1338,7 @@
     <Content Include="assets\Admin\img\undraw_profile_2.svg" />
     <Content Include="assets\Admin\img\undraw_profile_3.svg" />
     <Content Include="assets\Admin\img\undraw_rocket.svg" />
+    <Content Include="assets\Admin\js\Controller\ProductCategoryController.js" />
     <Content Include="assets\Admin\js\Controller\userController.js" />
     <Content Include="assets\Admin\js\sb-admin-2.js" />
     <Content Include="assets\Admin\js\sb-admin-2.min.js" />
@@ -1573,6 +1575,8 @@
     <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="assets\Client\js\CartItem.js" />
@@ -1624,6 +1628,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="assets\Admin\scss\" />
     <Folder Include="assets\Admin\vendor\" />
     <Folder Include="ckfinder\userfiles\flash\" />
