@@ -1,4 +1,5 @@
 ﻿using Models.EF;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,25 @@ namespace Models.DAO
             var model = db.Products.Where(x => x.Name.Contains(keyword))
                 .OrderByDescending(x => x.CreatedDate).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
             return model;
+        }
+
+        public IEnumerable<Product> ListAllPaging(string search, int page, int pageSize) //lấy ra danh sách trong Product
+        {
+            //có thể thêm 1 vài tham số tìm kiếm bằng cách thêm else if
+            IQueryable<Product> model = db.Products; //IQueryable là duyệt phần tử theo chiều tiến lên theo thứ tự
+            if (!string.IsNullOrEmpty(search))//kiểm tra rỗng hoặc null
+            {
+                model = model.Where(x => x.Name.Contains(search));    //tìm theo name( gần đúng or đúng)
+            }
+            return model.OrderByDescending(x => x.CategoryID).ToPagedList(page, pageSize);    //lấy ra số bản ghi của database và sắp xếp theo thứ tự ngày tạo  và sắp xếp giảm dần(OrderByDescending)
+        }
+
+        public long Insert(Product entity)
+        {
+            entity.CreatedDate = DateTime.Now;
+            db.Products.Add(entity);//truyền vào tham số rồi tự động add vào data thông qua SaveChanges
+            db.SaveChanges();
+            return entity.ID; //tự sinh ra ID
         }
     }
 }
